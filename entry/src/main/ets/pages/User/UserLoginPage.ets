@@ -1,3 +1,5 @@
+import { router } from '@kit.ArkUI'
+
 @Extend(TextInput)
   function inputStyle() {
       .placeholderColor('#99182431')
@@ -24,6 +26,7 @@ function blueTextStyle(){
 @Entry
 @Component
 struct UserLoginPage {
+  @State isAgreed : boolean = false;
   @Builder
   imageButton(src: Resource) {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
@@ -78,7 +81,7 @@ struct UserLoginPage {
       Text('注册账号')
         .fontSize('16fp')
         .fontWeight(FontWeight.Medium)
-        .backgroundColor('#007DFF')
+        .fontColor('#007DFF')
       Text('其他登陆方式')
         .fontColor('#838D97')
         .fontSize('12fp')
@@ -88,6 +91,28 @@ struct UserLoginPage {
         this.imageButton($r('app.media.login_method1'))
         this.imageButton($r('app.media.login_method2'))
       }
+      Checkbox(){
+        Text('登录即代表同意')
+          .fontSize('12fp')
+          .fontColor(Color.Gray)
+        Text('用户手册')
+          .fontSize('12fp')
+          .fontColor(Color.Blue)
+          .onClick(() => {
+            router.pushUrl({url:'pages/PrivacyPolicy/PrivacyPolicy'})
+          })
+        Text('和')
+          .fontSize('12fp')
+          .fontColor(Color.Blue)
+        Text('用户隐私政策')
+          .fontSize('12fp')
+          .fontColor(Color.Blue)
+          .onClick(() => {
+            router.pushUrl({url:'pages/PrivacyPolicy/PrivacyPolicy'})
+          })
+      }
+      .shape(CheckBoxShape.CIRCLE)
+
     }
     .width('100%')
     .height('100%')
