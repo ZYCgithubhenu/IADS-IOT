@@ -42,7 +42,7 @@ struct UserLoginPage {
         .width('78vp')
         .height('78vp')
         .margin({top: '150vp',bottom:'8vp'})
-      Text('登陆界面')
+      Text('欢迎登录')
         .fontSize('24fp')
         .fontWeight(FontWeight.Medium)
         .fontColor('#182431')
@@ -87,31 +87,35 @@ struct UserLoginPage {
         .fontSize('12fp')
         .fontWeight(FontWeight.Medium)
         .margin({ top: '50vp', bottom: '12vp' })
-      Row({space:45}){
+      Row({space:55}){
         this.imageButton($r('app.media.login_method1'))
         this.imageButton($r('app.media.login_method2'))
       }
-      Checkbox(){
-        Text('登录即代表同意')
-          .fontSize('12fp')
-          .fontColor(Color.Gray)
-        Text('用户手册')
-          .fontSize('12fp')
-          .fontColor(Color.Blue)
-          .onClick(() => {
-            router.pushUrl({url:'pages/PrivacyPolicy/PrivacyPolicy'})
-          })
-        Text('和')
-          .fontSize('12fp')
-          .fontColor(Color.Blue)
-        Text('用户隐私政策')
-          .fontSize('12fp')
-          .fontColor(Color.Blue)
-          .onClick(() => {
-            router.pushUrl({url:'pages/PrivacyPolicy/PrivacyPolicy'})
-          })
+      Row(){
+        Checkbox(){
+          Text('登录即代表同意')
+            .fontSize('16fp')
+            .fontColor(Color.Gray)
+          Text('用户手册')
+            .fontSize('16fp')
+            .fontColor(Color.Blue)
+            .onClick(() => {
+              router.pushUrl({url:'pages/PrivacyPolicy/PrivacyPolicy'})
+            })
+          Text('和')
+            .fontSize('16fp')
+            .fontColor(Color.Gray)
+          Text('用户隐私政策')
+            .fontSize('16fp')
+            .fontColor(Color.Blue)
+            .onClick(() => {
+              router.pushUrl({url:'pages/PrivacyPolicy/PrivacyPolicy'})
+            })
+        }
+        .shape(CheckBoxShape.CIRCLE)
       }
-      .shape(CheckBoxShape.CIRCLE)
+      .margin({top:20})
+
 
     }
     .width('100%')

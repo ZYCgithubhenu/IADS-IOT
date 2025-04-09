@@ -1,20 +1,14 @@
+import {MyTabs} from './Tabs/MyTabs';
+import {FirstTabs} from './Tabs/FirstTabs';
+import {HelperTabs} from './Tabs/HelperTabs';
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Hello World';
-
   //@provide 装饰器和@consume装饰器，与后代组件双向同步
   @Provide currentIndex: number = 0;
-  @Provide isPageShow : boolean = false;
+  @Provide isPageShow : boolean = true;
   @StorageLink('bottomHeight') bottomHeight: number = 0;
 
-
-  onPageShow(): void {
-    this.isPageShow = true;
-  }
-  onPageHide(): void {
-    this.isPageShow = false;
-  }
 
   //自定义选项卡(tabs)导航栏样式
   @Builder
@@ -36,21 +30,27 @@ struct Index {
       this.currentIndex = targetIndex;
     })
   }
+
+
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize($r('app.float.page_text_font_size'))
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          this.message = 'Welcome';
-        })
+    Tabs({ index: this.currentIndex, barPosition: BarPosition.End }) {
+      TabContent() {
+        FirstTabs();
+      }
+      .tabBar(this.TabBuilder('首页', 0, $r("app.media.wode_select"), $r('app.media.wode_filled')))
+
+      TabContent() {
+        HelperTabs();
+      }
+      .tabBar(this.TabBuilder('惠农助手', 1, $r('app.media.huinong_select'), $r('app.media.huinong_filled')))
+
+      TabContent() {
+        MyTabs();
+      }
+      .tabBar(this.TabBuilder('我的', 2, $r('app.media.shouye_select'), $r('app.media.shouye_filled')))
     }
-    .height('100%')
-    .width('100%')
+    .barMode(BarMode.Fixed) // 默认值 Fixed
+    .scrollable(false) // 限制滑动
+    .padding({ bottom: this.bottomHeight })
   }
 }
