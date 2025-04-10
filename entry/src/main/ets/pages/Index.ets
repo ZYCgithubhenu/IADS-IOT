@@ -1,9 +1,14 @@
-import {MyTabs} from './Tabs/MyTabs';
-import {FirstTabs} from './Tabs/FirstTabs';
-import {HelperTabs} from './Tabs/HelperTabs';
-@Entry
+import MyTabs from './Tabs/MyTabs';
+import FirstTabs from './Tabs/FirstTabs';
+
+
+@Builder
+export function IndexBuilder() {
+    Index()
+}
+
 @Component
-struct Index {
+export struct Index {
   //@provide 装饰器和@consume装饰器，与后代组件双向同步
   @Provide currentIndex: number = 0;
   @Provide isPageShow : boolean = true;
@@ -33,24 +38,29 @@ struct Index {
 
 
   build() {
-    Tabs({ index: this.currentIndex, barPosition: BarPosition.End }) {
-      TabContent() {
-        FirstTabs();
-      }
-      .tabBar(this.TabBuilder('首页', 0, $r("app.media.wode_select"), $r('app.media.wode_filled')))
+    NavDestination(){
+      Tabs({ index: this.currentIndex, barPosition: BarPosition.End }) {
+        TabContent() {
+          FirstTabs();
+        }
+        .tabBar(this.TabBuilder('首页', 0, $r("app.media.shouye_select"), $r('app.media.shouye_filled')))
 
-      TabContent() {
-        HelperTabs();
+        TabContent() {
+          MyTabs();
+        }
+        .tabBar(this.TabBuilder('我的', 1, $r('app.media.wode_select'), $r('app.media.wode_filled')))
       }
-      .tabBar(this.TabBuilder('惠农助手', 1, $r('app.media.huinong_select'), $r('app.media.huinong_filled')))
-
-      TabContent() {
-        MyTabs();
-      }
-      .tabBar(this.TabBuilder('我的', 2, $r('app.media.shouye_select'), $r('app.media.shouye_filled')))
+      .barMode(BarMode.Fixed) // 默认值 Fixed
+      .scrollable(false) // 限制滑动
+      .padding({ bottom: this.bottomHeight })
     }
-    .barMode(BarMode.Fixed) // 默认值 Fixed
-    .scrollable(false) // 限制滑动
-    .padding({ bottom: this.bottomHeight })
+    .height('100%')
+    .hideTitleBar(true)
+    .backgroundColor('#F1F3F5')
+
   }
+}
+
+function UserLoginPageBuilder() {
+  throw new Error('Function not implemented.');
 }
