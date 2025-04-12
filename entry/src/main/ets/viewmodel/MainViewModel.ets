@@ -15,7 +15,7 @@ export class MainViewModel {
     let firstGridData: ItemData[] = [
       new ItemData(0, '农田状态', $r('app.media.nongtian')),
       new ItemData(1, '设备管理', $r('app.media.shebeiguanli')),
-      new ItemData(2, '预警', $r('app.media.yujing')),
+      new ItemData(2, '预警', $r('app.media.yujing'))
       // new ItemData(3, '购物车', $r('app.media.shopping')),
       // new ItemData(4, '我的目标', $r('app.media.target')),
       // new ItemData(5, '圈子', $r('app.media.circle')),

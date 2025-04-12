@@ -1,10 +1,33 @@
 import ItemData from "../../viewmodel/ItemData"
 import MainViewModel from "../../viewmodel/MainViewModel"
+import { router } from "@kit.ArkUI";
+import promptAction from '@ohos.promptAction';
 
 
 @Preview
 @Component
 export default struct Setting {
+  pathStack: NavPathStack = new NavPathStack();
+  handleClick(id: number){
+    switch (id){
+      case 1:
+        router.pushUrl({url: 'pages/Settings/FontSizesetting'})
+        break;
+      case 2:
+        router.pushUrl({url: 'pages/Settings/MenuSetting'})
+        break;
+      case 3:
+        promptAction.showToast({
+          message:'已清理缓存200MB'
+        })
+        break;
+      case 4:
+        router.pushUrl({url: 'pages/PrivacyPolicy/PrivacyPolicy'})
+        break;
+      case 5:
+        router.pushUrl({url: 'pages/Settings/About'})
+    }
+  }
   @Builder
   settingCell(item: ItemData) {
     Row() {
@@ -64,32 +87,36 @@ export default struct Setting {
       .alignItems(VerticalAlign.Center)
       .width('100%')
 
-      List({ space: '12vp' }) {
-        ForEach(MainViewModel.getSettingListData(), (item: ItemData[]) => {
-          ListItemGroup() {
-            ForEach(item, (cell: ItemData) => {
-              ListItem() {
-                this.settingCell(cell)
-              }
-              .height('48vp')
+        List({ space: '12vp' }) {
+          ForEach(MainViewModel.getSettingListData(), (item: ItemData[]) => {
+            ListItemGroup() {
+              ForEach(item, (cell: ItemData) => {
+                ListItem() {
+                  this.settingCell(cell)
+                }
+                .onClick(() =>{
+                  this.handleClick(cell.id)
+                })
+                .height('48vp')
+              })
+            }
+            .divider({
+              strokeWidth: '1vp',
+              color: '#0d000000',
+              startMargin: '42vp',
+              endMargin: '24vp'
             })
-          }
-          .divider({
-            strokeWidth: '1vp',
-            color: '#0d000000',
-            startMargin: '42vp',
-            endMargin: '24vp'
-          })
-          .backgroundColor('#ffffff')
-          .borderRadius('16vp')
-        }, (item: ItemData) => JSON.stringify(item))
-      }
-      .scrollBar(BarState.Off)
-      .width('100%')
-      .padding({
-        top: '4vp',
-        bottom: '4vp'
-      })
+            .backgroundColor('#ffffff')
+            .borderRadius('16vp')
+          }, (item: ItemData) => JSON.stringify(item))
+        }
+        .scrollBar(BarState.Off)
+        .width('100%')
+        .padding({
+          top: '4vp',
+          bottom: '4vp'
+        })
+
       Blank();
       Button('退出登录', { type: ButtonType.Capsule })
         .width('90%')

@@ -1,5 +1,9 @@
 {
   "src": [
-    "pages/UserLoginPage"
+    "pages/UserLoginPage",
+    "pages/PrivacyPolicy/PrivacyPolicy",
+    "pages/Settings/About",
+    "pages/Settings/FontSizesetting",
+    "pages/Settings/MenuSetting"
   ]
 }
