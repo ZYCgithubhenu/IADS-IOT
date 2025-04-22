@@ -6,7 +6,7 @@ import FirstTabs from './Tabs/FirstTabs';
 export function IndexBuilder() {
     Index()
 }
-
+@Entry
 @Component
 export struct Index {
   //@provide 装饰器和@consume装饰器，与后代组件双向同步
@@ -38,7 +38,6 @@ export struct Index {
 
 
   build() {
-    NavDestination(){
       Tabs({ index: this.currentIndex, barPosition: BarPosition.End }) {
         TabContent() {
           FirstTabs();
@@ -54,13 +53,5 @@ export struct Index {
       .scrollable(false) // 限制滑动
       .padding({ bottom: this.bottomHeight })
     }
-    .height('100%')
-    .hideTitleBar(true)
-    .backgroundColor('#F1F3F5')
-
-  }
 }
 
-function UserLoginPageBuilder() {
-  throw new Error('Function not implemented.');
-}

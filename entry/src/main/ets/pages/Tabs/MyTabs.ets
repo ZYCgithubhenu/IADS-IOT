@@ -3,11 +3,9 @@ import MainViewModel from "../../viewmodel/MainViewModel"
 import { router } from "@kit.ArkUI";
 import promptAction from '@ohos.promptAction';
 
-
 @Preview
 @Component
 export default struct Setting {
-  pathStack: NavPathStack = new NavPathStack();
   handleClick(id: number){
     switch (id){
       case 1:
@@ -126,6 +124,9 @@ export default struct Setting {
         .fontWeight(FontWeight.Medium)
         .backgroundColor('#E5E8EA')
         .margin({ bottom: '16vp' })
+        .onClick(() => {
+          router.replaceUrl({ url: 'pages/UserLoginPage'});
+        })
     }
     .backgroundColor('#F1F3F5')
     .width('100%')

@@ -1,4 +1,5 @@
 import { promptAction, router } from '@kit.ArkUI'
+
 @Extend(TextInput)
   function inputStyle() {
       .placeholderColor('#99182431')
@@ -25,12 +26,10 @@ function blueTextStyle(){
 @Entry
 @Component
 export  struct UserLoginPage {
-  @State isAgreed : boolean = false;
   @State account: string = '';
   @State password: string = '';
   @State isShowProgress: boolean = false;
   private timeOutId: number = -1;
-  pathStack: NavPathStack = new NavPathStack();
   @Builder
   imageButton(src: Resource) {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
@@ -41,7 +40,7 @@ export  struct UserLoginPage {
     .backgroundColor('#F1F3F5')
   }
   login(result: boolean): void {
-    if (this.account === '' || this.password === '') {
+    if (this.account === '' || this.password=== '') {
       promptAction.showToast({
         message: ('账号或密码不能为空')
       })
@@ -51,7 +50,7 @@ export  struct UserLoginPage {
         this.timeOutId = setTimeout(() => {
           this.isShowProgress = false;
           this.timeOutId = -1;
-          this.pathStack.pushPathByName('Index', null);
+          router.replaceUrl({url:'pages/Index'});
         }, 2000);
       }
     }
@@ -62,12 +61,11 @@ export  struct UserLoginPage {
     this.timeOutId = -1;
   }
   build() {
-    Navigation(this.pathStack){
       Column(){
         Image($r('app.media.startIcon'))
           .width('78vp')
           .height('78vp')
-          .margin({top: '150vp',bottom:'8vp'})
+          .margin({top: '130vp',bottom:'8vp'})
         Text('欢迎登录')
           .fontSize('24fp')
           .fontWeight(FontWeight.Medium)
@@ -80,7 +78,7 @@ export  struct UserLoginPage {
           .type(InputType.Number)
           .maxLength(11)
           .inputStyle()
-          .onChange((value:string) => {this.account = value})
+          .onChange((value:string) => {this.account= value})
         Line()
           .lineStyle()
         TextInput({placeholder:'密码'})
@@ -109,6 +107,10 @@ export  struct UserLoginPage {
           .onClick(() => {
             this.login(true);
           })
+        Text('注册账号')
+          .fontSize('16fp')
+          .fontWeight(FontWeight.Medium)
+          .fontColor('#007DFF')
         if (this.isShowProgress) {
           LoadingProgress()
             .color('#182431')
@@ -116,15 +118,12 @@ export  struct UserLoginPage {
             .height('30vp')
             .margin({ top: '20vp' })
         }
-        Text('注册账号')
-          .fontSize('16fp')
-          .fontWeight(FontWeight.Medium)
-          .fontColor('#007DFF')
+        Blank();
         Text('其他登陆方式')
           .fontColor('#838D97')
           .fontSize('12fp')
           .fontWeight(FontWeight.Medium)
-          .margin({ top: '50vp', bottom: '12vp' })
+          .margin({ top: '50vp' })
         Row({space:55}){
           this.imageButton($r('app.media.login_method1'))
           this.imageButton($r('app.media.login_method2'))
@@ -156,10 +155,4 @@ export  struct UserLoginPage {
         bottom: '24vp'
       })
     }
-    .backgroundColor('#F1F3F5')
-    .width('100%')
-    .height('100%')
-    .hideTitleBar(true)
-    .hideToolBar(true)
-  }
 }

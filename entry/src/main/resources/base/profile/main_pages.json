@@ -4,6 +4,8 @@
     "pages/PrivacyPolicy/PrivacyPolicy",
     "pages/Settings/About",
     "pages/Settings/FontSizesetting",
-    "pages/Settings/MenuSetting"
+    "pages/Settings/MenuSetting",
+    "pages/Index",
+    "pages/Utils/NongTianStage"
   ]
 }
