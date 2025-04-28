@@ -1,6 +1,8 @@
 import ItemData from "../../viewmodel/ItemData"
 import MainViewModel from "../../viewmodel/MainViewModel"
-
+/*
+ * 这是首页
+ * */
 @Preview
 @Component
 export default struct FirstTabs {
@@ -21,7 +23,7 @@ export default struct FirstTabs {
             .width('100%')
             .borderRadius('16vp')
         }, (img: Resource) => JSON.stringify(img.id))
-      }
+      }//首页轮播图
       .autoPlay(true)
       Grid() {
         ForEach(MainViewModel.getFirstGridData(), (item: ItemData, index: number) => {
@@ -36,8 +38,8 @@ export default struct FirstTabs {
             }
           }
         }, (item: ItemData) => JSON.stringify(item))
-      }
-      .columnsTemplate('1fr 1fr 1fr')
+      }//首页功能区。因为不知道要做哪些功能，所以先这样写着
+      .columnsTemplate('1fr 1fr 1fr')//目前只有三个功能，所以分为三份
       .rowsTemplate('1fr')
       .columnsGap('8vp')
       .rowsGap('12vp')

@@ -1,6 +1,10 @@
 import { promptAction, router } from '@kit.ArkUI'
 
-@Extend(TextInput)
+
+/*
+ * 登陆界面，也是app进入的首页面
+ * */
+@Extend(TextInput)//输入框样式
   function inputStyle() {
       .placeholderColor('#99182431')
       .height('45vp')
@@ -9,13 +13,13 @@ import { promptAction, router } from '@kit.ArkUI'
       .width('100%')
       .margin({top:12})
 }
-@Extend(Line)
+@Extend(Line)//下划线样式
 function lineStyle(){
     .width('100%')
     .height('1vp')
     .backgroundColor('#33182431')
 }
-@Extend(Text)
+@Extend(Text)//文字样式
 function blueTextStyle(){
     .fontColor('#007DFF')
     .fontSize('14fp')
@@ -26,10 +30,10 @@ function blueTextStyle(){
 @Entry
 @Component
 export  struct UserLoginPage {
-  @State account: string = '';
-  @State password: string = '';
-  @State isShowProgress: boolean = false;
-  private timeOutId: number = -1;
+  @State account: string = '';//用户ID号
+  @State password: string = '';//用户密码
+  @State isShowProgress: boolean = false;//界面是否显示标记
+  private timeOutId: number = -1;//倒计时，用于显示加载动画
   @Builder
   imageButton(src: Resource) {
     Button({ type: ButtonType.Circle, stateEffect: true }) {
@@ -50,7 +54,7 @@ export  struct UserLoginPage {
         this.timeOutId = setTimeout(() => {
           this.isShowProgress = false;
           this.timeOutId = -1;
-          router.replaceUrl({url:'pages/Index'});
+          router.replaceUrl({url:'pages/Index'});//点击登录按钮后跳转到Index页面
         }, 2000);
       }
     }
@@ -59,7 +63,7 @@ export  struct UserLoginPage {
   aboutToDisappear() {
     clearTimeout(this.timeOutId);
     this.timeOutId = -1;
-  }
+  }//加载动画
   build() {
       Column(){
         Image($r('app.media.startIcon'))

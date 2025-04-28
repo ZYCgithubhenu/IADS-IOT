@@ -1,7 +1,6 @@
-// PrivacyPolicyPage.ets
-import router from '@ohos.router';
-import promptAction from '@ohos.promptAction';
-
+/*
+ * 隐私协议界面
+ * */
 // 定义协议章节类型
 interface PolicySection {
   title: string

@@ -1,7 +1,9 @@
 import MyTabs from './Tabs/MyTabs';
 import FirstTabs from './Tabs/FirstTabs';
 
-
+/*
+ * 这个是底部导航栏，可以根据选项调出对应的界面
+ * */
 @Builder
 export function IndexBuilder() {
     Index()
@@ -10,9 +12,9 @@ export function IndexBuilder() {
 @Component
 export struct Index {
   //@provide 装饰器和@consume装饰器，与后代组件双向同步
-  @Provide currentIndex: number = 0;
-  @Provide isPageShow : boolean = true;
-  @StorageLink('bottomHeight') bottomHeight: number = 0;
+  @Provide currentIndex: number = 0;//当前导航栏的位置
+  @Provide isPageShow : boolean = true;//界面是否显示标记
+  @StorageLink('bottomHeight') bottomHeight: number = 0;//底部导航栏高度
 
 
   //自定义选项卡(tabs)导航栏样式
@@ -40,12 +42,12 @@ export struct Index {
   build() {
       Tabs({ index: this.currentIndex, barPosition: BarPosition.End }) {
         TabContent() {
-          FirstTabs();
+          FirstTabs();//首页
         }
         .tabBar(this.TabBuilder('首页', 0, $r("app.media.shouye_select"), $r('app.media.shouye_filled')))
 
         TabContent() {
-          MyTabs();
+          MyTabs();//我的
         }
         .tabBar(this.TabBuilder('我的', 1, $r('app.media.wode_select'), $r('app.media.wode_filled')))
       }

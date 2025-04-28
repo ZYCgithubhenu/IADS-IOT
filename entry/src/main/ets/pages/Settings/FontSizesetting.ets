@@ -2,7 +2,9 @@
 
 import preferences from '@ohos.data.preferences';
 import { FontSizeManager } from '../../viewmodel/FontSizeManager';
-
+/*
+ * 字体大小设置界面
+ * */
 @Entry
 @Component
 struct FontSizeSettingPage {

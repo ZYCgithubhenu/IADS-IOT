@@ -1,7 +1,11 @@
 // AboutPage.ets
 import router from '@ohos.router';
 import { promptAction } from '@kit.ArkUI';
-
+/*
+ * 这个文件夹里放的是我的界面里的部分功能列表对应的二级界面，只有基础组件，不够美观，后期可以再更改
+ *
+ * 这个页面是关于页面
+ * */
 @Entry
 @Component
 struct AboutPage {

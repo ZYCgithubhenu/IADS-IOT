@@ -2,7 +2,9 @@ import ItemData from "../../viewmodel/ItemData"
 import MainViewModel from "../../viewmodel/MainViewModel"
 import { router } from "@kit.ArkUI";
 import promptAction from '@ohos.promptAction';
-
+/*
+ * 我的界面
+ * */
 @Preview
 @Component
 export default struct Setting {
@@ -24,7 +26,7 @@ export default struct Setting {
         break;
       case 5:
         router.pushUrl({url: 'pages/Settings/About'})
-    }
+    }//这里对应的是我的界面的功能列表，目前只有五个，而且二级界面只有基础组件，不够美观
   }
   @Builder
   settingCell(item: ItemData) {
@@ -54,7 +56,7 @@ export default struct Setting {
       left: '8vp',
       right: '22vp'
     })
-  }
+  }//这个是每个功能对应的格式
 
   build() {
     Column() {
@@ -107,7 +109,7 @@ export default struct Setting {
             .backgroundColor('#ffffff')
             .borderRadius('16vp')
           }, (item: ItemData) => JSON.stringify(item))
-        }
+        }//通过List来创建功能列表
         .scrollBar(BarState.Off)
         .width('100%')
         .padding({
@@ -125,7 +127,7 @@ export default struct Setting {
         .backgroundColor('#E5E8EA')
         .margin({ bottom: '16vp' })
         .onClick(() => {
-          router.replaceUrl({ url: 'pages/UserLoginPage'});
+          router.replaceUrl({ url: 'pages/UserLoginPage'});//点击退出登录按钮之后普退回到登录界面，且不可退回
         })
     }
     .backgroundColor('#F1F3F5')
