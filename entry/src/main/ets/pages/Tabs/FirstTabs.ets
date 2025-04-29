@@ -1,8 +1,17 @@
 import ItemData from "../../viewmodel/ItemData"
 import MainViewModel from "../../viewmodel/MainViewModel"
+import { promptAction, router } from '@kit.ArkUI'
+
 /*
  * 这是首页
  * */
+function select(index:number):void{
+    switch (index){
+      case 0:
+        router.pushUrl({url:"../Utils/NongTianStage"})
+        break;
+    }
+}
 @Preview
 @Component
 export default struct FirstTabs {
@@ -36,8 +45,11 @@ export default struct FirstTabs {
                 .fontSize('12fp')
                 .margin({ top: '4vp' })
             }
+            .onClick(() => {
+              select(item.id);
+            })
           }
-        }, (item: ItemData) => JSON.stringify(item))
+        }, (item: ItemData) => JSON.stringify(item))//生成唯一键
       }//首页功能区。因为不知道要做哪些功能，所以先这样写着
       .columnsTemplate('1fr 1fr 1fr')//目前只有三个功能，所以分为三份
       .rowsTemplate('1fr')

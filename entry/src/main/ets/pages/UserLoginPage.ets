@@ -1,4 +1,5 @@
 import { promptAction, router } from '@kit.ArkUI'
+import ConnectionUtils from '../Common/network/ConnectionUtils';
 
 
 /*
@@ -54,8 +55,16 @@ export  struct UserLoginPage {
         this.timeOutId = setTimeout(() => {
           this.isShowProgress = false;
           this.timeOutId = -1;
+          // if (result) {
+          //   router.replaceUrl({url:'pages/Index'});//点击登录按钮后跳转到Index页面
+          // } else {
+          //   promptAction.showToast({
+          //     message: '无网络连接，无法登录'
+          //   });
+          // }此处留作连接数据库
           router.replaceUrl({url:'pages/Index'});//点击登录按钮后跳转到Index页面
         }, 2000);
+
       }
     }
   }
@@ -108,7 +117,12 @@ export  struct UserLoginPage {
           .fontWeight(FontWeight.Medium)
           .backgroundColor('#007DFF')
           .margin({top:'48vp',bottom:'12vp'})
-          .onClick(() => {
+          // .onClick(async () => {
+          //   await ConnectionUtils.isNetworkConnected().then((value) => {
+          //     this.login(value);
+          //   })
+          // })此方法留作联网检测
+          .onClick(() =>{
             this.login(true);
           })
         Text('注册账号')
