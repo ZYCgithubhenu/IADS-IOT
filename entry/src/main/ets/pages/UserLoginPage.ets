@@ -55,17 +55,10 @@ export  struct UserLoginPage {
         this.timeOutId = setTimeout(() => {
           this.isShowProgress = false;
           this.timeOutId = -1;
-          // if (result) {
-          //   router.replaceUrl({url:'pages/Index'});//点击登录按钮后跳转到Index页面
-          // } else {
-          //   promptAction.showToast({
-          //     message: '无网络连接，无法登录'
-          //   });
-          // }此处留作连接数据库
           router.replaceUrl({url:'pages/Index'});//点击登录按钮后跳转到Index页面
         }, 2000);
-
       }
+      //此处连接数据库，查询数据库中的用户ID和密码是否与输入的数据一致
     }
   }
 
@@ -129,12 +122,14 @@ export  struct UserLoginPage {
           .fontSize('16fp')
           .fontWeight(FontWeight.Medium)
           .fontColor('#007DFF')
+          .onClick(() => {
+            router.pushUrl({url:"pages/Register"})
+          })
         if (this.isShowProgress) {
           LoadingProgress()
             .color('#182431')
             .width('30vp')
             .height('30vp')
-            .margin({ top: '20vp' })
         }
         Blank();
         Text('其他登陆方式')

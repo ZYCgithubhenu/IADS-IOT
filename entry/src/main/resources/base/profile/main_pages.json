@@ -6,6 +6,8 @@
     "pages/Settings/FontSizesetting",
     "pages/Settings/MenuSetting",
     "pages/Index",
-    "pages/Utils/NongTianStage"
+    "pages/Register",
+    "pages/Utils/Farmland",
+    "pages/Utils/Equipment"
   ]
 }

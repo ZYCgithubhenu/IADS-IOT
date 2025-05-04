@@ -13,14 +13,51 @@
       "value": "惠农"
     },
     {
+      "name": "farm_a",
+      "value": "农田A"
+    },
+    {
+      "name": "farm_b",
+      "value": "农田B"
+    },
+    {
+      "name": "farm_c",
+      "value": "农田C"
+    },
+    {
+      "name": "detail",
+      "value": "详情"
+    },
+    {
+      "name": "control",
+      "value": "控制"
+    },
+    {
+      "name": "status_online",
+      "value": "在线"
+    },
+    {
+      "name": "status_offline",
+      "value": "离线"
+    },{
+      "name": "status_fault",
+      "value": "故障"
+    },
+    {
+      "name": "device_id_prefix",
+      "value": "ID:"
+    },
+    {
       "name": "Internet",
       "value": "Internet Permission Request"
     },
     {
       "name": "network_info",
       "value": "NetWork Info Permission Request"
+    },
+    {
+      "name": "internet_permission_reason",
+      "value": "Used to access the network to obtain map data."
     }
-
-
   ]
 }

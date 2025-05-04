@@ -1,20 +1,21 @@
 import ItemData from "../../viewmodel/ItemData"
 import MainViewModel from "../../viewmodel/MainViewModel"
-import { promptAction, router } from '@kit.ArkUI'
+import { router } from "@kit.ArkUI";
+
 
 /*
  * 这是首页
  * */
-function select(index:number):void{
-    switch (index){
-      case 0:
-        router.pushUrl({url:"../Utils/NongTianStage"})
-        break;
-    }
-}
 @Preview
 @Component
 export default struct FirstTabs {
+  private getTargetPage(id: number): string {
+    const pageMap = new Map<number, string>([
+      [0, 'pages/Utils/Farmland'],
+      [1, 'pages/Utils/Equipment']
+    ]);
+    return pageMap.get(id) || 'pages/DefaultPage';
+  }
   build() {
     Column() {
       Text('首页')
@@ -46,7 +47,7 @@ export default struct FirstTabs {
                 .margin({ top: '4vp' })
             }
             .onClick(() => {
-              select(item.id);
+              router.pushUrl({url:this.getTargetPage(item.id)})
             })
           }
         }, (item: ItemData) => JSON.stringify(item))//生成唯一键

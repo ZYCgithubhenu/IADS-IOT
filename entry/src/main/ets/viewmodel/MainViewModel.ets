@@ -1,7 +1,8 @@
 import ItemData from './ItemData';
+
 export class MainViewModel {
   //首页轮播图
-  getSwiperImages(): Array<Resource> {
+    getSwiperImages(): Array<Resource> {
     let swiperImages: Resource[] = [
       $r('app.media.fig1'),
       $r('app.media.fig2'),

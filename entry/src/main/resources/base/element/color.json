@@ -11,6 +11,42 @@
     {
       "name": "font",
       "value": "#0C273D"
+    },
+    {
+      "name": "primary",
+      "value": "#2A5CAA"
+    },
+    {
+      "name": "surface",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "on_surface",
+      "value": "#333333"
+    },
+    {
+      "name": "secondary_text",
+      "value": "#666666"
+    },
+    {
+      "name": "status_online",
+      "value": "#4CAF50"
+    },
+    {
+      "name": "status_offline",
+      "value": "#F44336"
+    },
+    {
+      "name": "status_fault",
+      "value": "#FFC107"
+    },
+    {
+      "name": "outline",
+      "value": "#E0E0E0"
+    },
+    {
+      "name": "background",
+      "value":"#F5F5F5"
     }
   ]
 }
