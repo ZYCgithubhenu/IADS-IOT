@@ -56,20 +56,20 @@ struct FontSizeSettingPage {
         Button('小')
           .fontSize(16)
           .padding(10)
-          .backgroundColor(this.currentScale === 0.8 ? Color.Blue : Color.White)
+          .backgroundColor(this.currentScale === 0.8 ? Color.Blue : Color.Black)
           .onClick(() => this.updateScale(0.8))
 
         Button('标准')
           .fontSize(16)
           .padding(10)
-          .backgroundColor(this.currentScale === 1.0 ? Color.Blue : Color.White)
+          .backgroundColor(this.currentScale === 1.0 ? Color.Blue : Color.Black)
           .margin({ left: 15, right: 15 })
           .onClick(() => this.updateScale(1.0))
 
         Button('大')
           .fontSize(16)
           .padding(10)
-          .backgroundColor(this.currentScale === 1.2 ? Color.Blue : Color.White)
+          .backgroundColor(this.currentScale === 1.2 ? Color.Blue : Color.Black)
           .onClick(() => this.updateScale(1.2))
       }
       .margin({ bottom: 30 })

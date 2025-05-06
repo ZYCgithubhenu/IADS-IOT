@@ -77,12 +77,18 @@ struct SmartFarmDeviceManagement {
   ];
 
   build() {
-    Column() {
-      this.buildAppBar()
-      this.buildDeviceList()
+    Stack(){
+      Stack()
+        .width('100%')
+        .height('100%')
+        .backgroundColor('#E6F7FF')
+      Column() {
+        this.buildAppBar()
+        this.buildDeviceList()
+      }
+      .width('100%')
     }
-    .width('100%')
-    .backgroundColor('#F5F5F5')
+
   }
 
   // 顶部应用栏

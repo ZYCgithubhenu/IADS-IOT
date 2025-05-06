@@ -25,6 +25,25 @@ export class MainViewModel {
     ];
     return firstGridData;
   }
+  //数据页数据
+  getDataGridData(): Array<ItemData>{
+      let dataGridData: ItemData[] = [
+        new ItemData(0,'环境监测',$r('app.media.huanjingjiance')),
+        new ItemData(1,'大棚信息',$r('app.media.dapeng')),
+        new ItemData(2,'作物百科',$r('app.media.zuowubaike')),
+        new ItemData(3,'天气查询',$r('app.media.tianqi'))
+      ];
+      return dataGridData
+  }
+  //管理页数据
+  getManageData(): Array<ItemData>{
+      let manageGrid: ItemData[] = [
+        new ItemData(0,'农资管理',$r('app.media.nongzi')),
+        new ItemData(1,'职工管理',$r('app.media.zhigongguanli'))
+      ]
+    return manageGrid;
+  }
+
   //我的设置页列表
   getSettingListData(): Array<Array<ItemData>> {
     let settingListData: ItemData[][] = [

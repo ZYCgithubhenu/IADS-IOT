@@ -8,6 +8,12 @@
     "pages/Index",
     "pages/Register",
     "pages/Utils/Farmland",
-    "pages/Utils/Equipment"
+    "pages/Utils/Equipment",
+    "pages/Utils/Fault",
+    "pages/Utils/EnvirMonitor",
+    "pages/Utils/GreenHouse",
+    "pages/Utils/Crop",
+    "pages/Utils/Weather",
+    "pages/Utils/Warning"
   ]
 }

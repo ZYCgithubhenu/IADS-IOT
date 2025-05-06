@@ -39,7 +39,8 @@
     {
       "name": "status_offline",
       "value": "离线"
-    },{
+    },
+    {
       "name": "status_fault",
       "value": "故障"
     },

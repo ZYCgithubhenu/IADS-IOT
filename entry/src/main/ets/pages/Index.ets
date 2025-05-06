@@ -1,5 +1,7 @@
 import MyTabs from './Tabs/MyTabs';
 import FirstTabs from './Tabs/FirstTabs';
+import DataTabs from './Tabs/DataTabs';
+import ManageTabs from './Tabs/ManageTabs';
 
 /*
  * 这个是底部导航栏，可以根据选项调出对应的界面
@@ -47,9 +49,19 @@ export struct Index {
         .tabBar(this.TabBuilder('首页', 0, $r("app.media.shouye_select"), $r('app.media.shouye_filled')))
 
         TabContent() {
+          DataTabs();//数据
+        }
+        .tabBar(this.TabBuilder('数据', 1, $r("app.media.data_select"), $r('app.media.data_filled')))
+
+        TabContent() {
+          ManageTabs();//管理
+        }
+        .tabBar(this.TabBuilder('管理', 2, $r("app.media.guanli_select"), $r('app.media.guanli_filled')))
+
+        TabContent() {
           MyTabs();//我的
         }
-        .tabBar(this.TabBuilder('我的', 1, $r('app.media.wode_select'), $r('app.media.wode_filled')))
+        .tabBar(this.TabBuilder('我的', 3, $r('app.media.wode_select'), $r('app.media.wode_filled')))
       }
       .barMode(BarMode.Fixed) // 默认值 Fixed
       .scrollable(false) // 限制滑动
